@@ -1,0 +1,15 @@
+.notification {
+    padding: 5px !important;
+}
+.inline {
+    display: inline !important;
+}
+.margin-bottom-15 {
+    margin-bottom: 15px !important;
+}
+.gray-background{
+    background-color: #eee;
+}
+ul#customerList li {
+    cursor: pointer;
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Customers</title>
+
+    <!-- Bootstrap -->
+    <link href="lib/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Style file -->
+    <link href="css/customers.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <!-- Top Section - Add and Search -->
+      <div class="row">
+
+        <div class="col-md-4">
+          <button type="button" id="btnAddEmployee" class="btn btn-default" 
+                  data-toggle="modal" data-target="#addCustomerModal">Add Customer</button>
+        </div>
+
+        <div id="divInvalid" class="col-md-4 alert alert-danger notification" role="alert">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span id="spanInvalid" class="sr-only">Error:</span>
+          <span></span>
+        </div>
+
+        <div class="col-md-4">
+          <input id="txtSearchCustomers" type="text" class="form-control" placeholder="Search Customers">
+        </div>
+
+      </div>
+
+      <!-- Middle section - list and details -->
+      <div class="row">
+
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Customer List</div>
+            <div class="panel-body">
+
+              <ul id="customerList" class="media-list list-group">                               
+              </ul>
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Customer Details</div>
+            <div class="panel-body">
+              <p id="pDefaultCustomerDetails">Select a customer from left to see its details</p>
+              <div id="divSelectedCustomerDetails" class="media">
+                <div class="media-left">
+                  <h4 id="customerNameFromDetails" class="media-heading"></h4>
+                  <span id="customerEmailFromDetails"></span>
+                </div>
+                <div id="customerImageFromDetails" class="media-body">
+                </div>
+              </div>                
+            </div>
+ 
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Add Employee Modal -->
+      <div class="modal fade" id="addCustomerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Add Customer</h4>
+            </div>
+            <div class="modal-body">
+              
+              <div class="media">
+                <div class="media-left">
+                    <div class="input-group">
+                      <span class="input-group-addon">Name</span>
+                      <input id="txtCustomerName" type="text" class="form-control" placeholder="Name">
+                    </div>
+
+                    <br />
+
+                    <div class="input-group">
+                      <span class="input-group-addon">Email</span>
+                      <input id="txtCustomerEmail" type="text" class="form-control" placeholder="Email">
+                    </div> 
+                </div>
+
+                <div id="divDropImage" class="media-right gray-background">
+                  Drag and Drop your image here
+                </div>
+              </div>  
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              <button id="btnAddCustomer" type="button" class="btn btn-primary">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>      
+
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="lib/js/jquery.js"></script>
+    <!-- Bootstrap -->
+    <script src="lib/js/bootstrap.min.js"></script>
+    <!-- Underscore -->
+    <script src="lib/js/underscore.js"></script>    
+    <!-- Javascript Code -->
+    <script src="js/customers.js"></script>
+    <!-- A list item template -->
+    <script id="customerTemplate" type="text/template">
+      <li class="media list-group-item">
+        <div class="media-left">
+          <h4 id="customerNameFromList" class="media-heading">{{CustomerName}}</h4>
+          <span id="customerEmailFromList" >{{CustomerEmail}}</span>
+        </div>
+        <div id="customerImageFromList" class="media-body" style="background:url({{CustomerImage}}) no-repeat center">
+          
+        </div>
+      </li>        
+    </script>
+  </body>
+</html>
